@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receipt - Shreeji Clinic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            padding: 0;
+        }
+
+        .receipt {
+            border: 2px solid black;
+            padding: 20px;
+            width: 700px;
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .doctor-logo {
+            margin-left: 60px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .clinic-info {
+            text-align: right;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .clinic-name {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .receipt-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 35px;
+            margin: 10px 0;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .details span {
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .signature {
+            text-align: right;
+            margin-left: auto;
+            width: 200px;
+            position: relative;
+        }
+
+        .stamp-image-behind {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .signature-text {
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .total {
+            text-align: right;
+        }
+
+        .placeholder-image {
+            background-color: #ccc;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .total {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="receipt">
+        <div class="header">
+            <div class="logo">
+                <img class="doctor-logo" src="https://imgs.search.brave.com/jcegaQIFJGVvIP5VxbS90KY7UHSFaJDpF8I-j17tZU8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzQ0MjYxNjUxL3Iv/aWwvMzBhNDEwLzQ5/ODgwODEyMTQvaWxf/NjAweDYwMC40OTg4/MDgxMjE0X2J1ZmUu/anBn" alt="">
+            </div>
+            <div class="clinic-info">
+                <span class="clinic-name">SHREEJI CLINIC</span><br>
+                Dr. Dhara Shah (B.H.M.S.)<br>
+                Reg. No. G-9432
+            </div>
+        </div>
+
+        <div class="receipt-title">
+            RECEIPT
+        </div>
+
+        <div class="details">
+            <div><span>Receipt No.: {{receiptNo}}</span>  </div>
+            <div><span>Date:</span> {{date}} </div>
+        </div>
+
+        <p>
+            Received with thanks from {{name}}<br>
+            sum of {{amountWords}}<br>
+            By {{paymentMode}}<br>
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>On Account of</th>
+                    <th style="width: 120px;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>{{onAccountOf}}</td>
+                    <td style="width: 120px;">{{amount}}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td style="width: 120px;">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td style="width: 120px;">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right;"><strong>Total</strong></td>
+                    <td style="width: 120px;">{{amount}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <div class="bottom">
+            <div class="signature">
+                <img src="" alt="Stamp" class="stamp-image-behind" />
+                <span class="signature-text">Signature</span>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
