@@ -28,7 +28,7 @@ function App() {
     try {
       // Build query string from form data
       const queryParams = new URLSearchParams(formData).toString();
-      const url = `http://localhost:3000/receipt?${queryParams}`;
+      const url = `${import.meta.env.VITE_BACKEND_URL}/receipt?${queryParams}`;
       console.log(url)
       
       const response = await fetch(url, {
