@@ -152,9 +152,13 @@ app.get('/receipt', async(req, res) => {
     // Populate the template with patient data
     const filledHtml = populateTemplate(templateHtml, patientData);
 
+    const baseChromePath = '/opt/render/.cache/puppeteer/chrome/';
+    const version = fs.readdirSync(baseChromePath)[0]; // gets "137.0.7151.55"
+    const executablePath = path.join(baseChromePath, version, 'chrome');
+
 
     const browser = await puppeteer.launch({
-    executablePath: '/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.55/chrome-linux64/chrome', // ← Update version if needed
+    executablePath, 
     headless: true,
     args: [
       '--no-sandbox',
