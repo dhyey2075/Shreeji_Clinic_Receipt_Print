@@ -28,7 +28,7 @@ function App() {
     try {
       // Build query string from form data
       const queryParams = new URLSearchParams(formData).toString();
-      const url = `${import.meta.env.VITE_BACKEND_URL}/receipt?${queryParams}`;
+      const url = `https://shreeji-clinic-receipt-print.onrender.com/receipt?${queryParams}`;
       console.log(url)
       
       const response = await fetch(url, {
