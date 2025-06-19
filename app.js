@@ -154,7 +154,7 @@ app.get('/receipt', async(req, res) => {
 
 
     const browser = await puppeteer.launch({
-    executablePath: '/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.55/chrome', // ← Update version if needed
+    executablePath: '/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.55/chrome-linux64/chrome', // ← Update version if needed
     headless: true,
     args: [
       '--no-sandbox',
