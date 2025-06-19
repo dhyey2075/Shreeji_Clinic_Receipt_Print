@@ -154,10 +154,16 @@ app.get('/receipt', async(req, res) => {
 
 
     const browser = await puppeteer.launch({
-  headless: true,
-  args: ['--no-sandbox', '--disable-setuid-sandbox'],
-});
-
+    executablePath: '/opt/render/.cache/puppeteer/chrome/linux-137.0.7151.55/chrome', // ← Update version if needed
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--single-process',
+      '--disable-gpu',
+    ],
+  });
     const page = await browser.newPage();
 
     // Set the HTML content
