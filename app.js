@@ -156,6 +156,10 @@ app.get('/receipt', async(req, res) => {
     const version = fs.readdirSync(baseChromePath)[0]; // gets "137.0.7151.55"
     const executablePath = path.join(baseChromePath, version, 'chrome');
 
+    if (!fs.existsSync(executablePath)) {
+      throw new Error(`Chrome not found at ${executablePath}`);
+    }
+
 
     const browser = await puppeteer.launch({
     executablePath, 
