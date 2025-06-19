@@ -152,8 +152,12 @@ app.get('/receipt', async(req, res) => {
     // Populate the template with patient data
     const filledHtml = populateTemplate(templateHtml, patientData);
 
-    // Launch Puppeteer
-    const browser = await puppeteer.launch();
+
+    const browser = await puppeteer.launch({
+  headless: true,
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
+
     const page = await browser.newPage();
 
     // Set the HTML content
